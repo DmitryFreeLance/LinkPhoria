@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="ru" >
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welcome Page</title>
+    <link rel="stylesheet" href="/libs/bootstrap.css">
+    <link rel="stylesheet" href="/libs/jquery-ui.css">
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/libs/jquery.js" defer></script>
+    <script src="/libs/jquery-ui.js" defer></script>
+    <script src="/libs/bootstrap.js" defer></script>
+    <script src="/script.js" defer></script>
+</head>
+<body class="bg-light">
+<div class="container">
+    <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+                    aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">LINK<span class="blue">PHORIA</span></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" style="margin-bottom: 0.3rem"
+                                     fill="currentColor"
+                                     class="bi bi-house-door" viewBox="0 0 16 16">
+                                    <path
+                                            d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4z"/>
+                                </svg>
+                                Главная
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" style="margin-bottom: 0.3rem"
+                                     fill="currentColor"
+                                     class="bi bi-link-45deg" viewBox="0 0 16 16">
+                                    <path
+                                            d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1 1 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4 4 0 0 1-.128-1.287z"/>
+                                    <path
+                                            d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243z"/>
+                                </svg>
+                                Мои ссылки
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" style="margin-bottom: 0.3rem"
+                                     fill="currentColor"
+                                     class="bi bi-bag-plus" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                          d="M8 7.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0v-1.5H6a.5.5 0 0 1 0-1h1.5V8a.5.5 0 0 1 .5-.5"/>
+                                    <path
+                                            d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z"/>
+                                </svg>
+                                Тарифы
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" style="margin-bottom: 0.3rem"
+                                     fill="currentColor"
+                                     class="bi bi-person-square" viewBox="0 0 16 16">
+                                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                                    <path
+                                            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1v-1c0-1-1-4-6-4s-6 3-6 4v1a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"/>
+                                </svg>
+                                Профиль
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <a class="navbar-brand" style="margin-left: 2rem">LINK<span class="blue">PHORIA</span></a>
+            <a class="navbar-brand ms-auto login" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">
+                Вход
+            </a>
+            <a class="navbar-brand login" href="#" data-bs-toggle="modal" data-bs-target="#registerModal">
+                Регистрация
+            </a>
+        </div>
+    </nav>
+
+    <div class="card first-card">
+        <div class="card-body">
+            <input type="text" class="full-width-input" placeholder="https://linkphoria.ru/main-page">
+        </div>
+    </div>
+    <div class="row row-cols-1 row-cols-md-2 g-4 myRow">
+        <div class="col">
+            <a class=cards href="#">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Временные ссылки</h5>
+                        <p class="card-text space">Автоматически деактивируются после заданного промежутка времени</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col">
+            <a class=cards href="#">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Лимитные ссылки</h5>
+                        <p class="card-text space">Деактивируются после определенного количества кликов</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col">
+            <a class=cards href="#">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Ссылки с защитой по паролю</h5>
+                        <p class="card-text space">Можно открыть только при вводе корректного пароля</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col">
+            <a class=cards href="#">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Одноразовые ссылки</h5>
+                        <p class="card-text space">Работают только один раз, после чего автоматически деактивируются</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Войти в личный кабинет</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="row g-3" action="/login" method="post">
+                        <div class="col-md-6 myLogin">
+                            <label for="inputEmail4" class="form-label" style="color:#979797">Email</label>
+                            <input type="email" class="form-control" id="inputEmail4" name="email" required>
+                        </div>
+                        <div class="col-md-6 myLogin">
+                            <label for="inputPassword4" class="form-label" style="color:#979797">Пароль</label>
+                            <input type="password" class="form-control" id="inputPassword4" name="password" required>
+                        </div>
+                        <div class="col-md-12 text-center">
+                            <button type="submit" class="btn btn-primary myLogin-btn">Войти</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="registerModalLabel">Регистрация</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="row g-3" action="/registration" method="post">
+                        <div class="col-md-6 myLogin">
+                            <label for="inputName" class="form-label" style="color:#979797">Имя пользователя</label>
+                            <input type="text" class="form-control" id="inputName" name="name" required>
+                        </div>
+                        <div class="col-md-6 myLogin">
+                            <label for="inputEmail" class="form-label" style="color:#979797">Email</label>
+                            <input type="email" class="form-control" id="inputEmail" name="email" required>
+                        </div>
+                        <div class="col-md-6 myLogin">
+                            <label for="inputPassword" class="form-label" style="color:#979797">Пароль</label>
+                            <input type="password" class="form-control" id="inputPassword" name="password" required>
+                        </div>
+                        <div class="col-md-6 myLogin">
+                            <label for="inputConfirmPassword" class="form-label" style="color:#979797">Подтвердите пароль</label>
+                            <input type="password" class="form-control" id="inputConfirmPassword" name="confirmPassword" required>
+                        </div>
+                        <div class="col-md-12 text-center">
+                            <button type="submit" class="btn btn-primary myLogin-btn">Зарегистрироваться</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

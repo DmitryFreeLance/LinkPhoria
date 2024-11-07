@@ -1,0 +1,126 @@
+.bg-body {
+    height: 12rem;
+}
+
+.navbar-toggler {
+    border: 1px solid #005cff;
+}
+
+.blue {
+    color: #005cff;
+}
+
+.navbar-toggler:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.1rem rgb(0, 128, 255);
+}
+
+.navbar {
+    border-bottom: 1px solid #dadada;
+}
+
+.card {
+    margin: 0 auto;
+    width: 100%;
+    padding: 0;
+    border-radius: 33px;
+    border-color: #005cff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 12px 40px rgba(0, 0, 0, 0.1);
+    height: 12rem;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.card:hover {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3), 0 16px 48px rgba(0, 0, 0, 0.2);
+}
+
+.first-card {
+    margin: 5rem auto;
+    width: 66%;
+    height: 100%;
+}
+
+.card.first-card:hover {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.7);
+    }
+    100% {
+        box-shadow: 0 0 0 15px rgba(0, 123, 255, 0);
+    }
+}
+
+.full-width-input {
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+}
+
+.full-width-input:focus {
+    outline: none;
+}
+
+.myRow {
+    margin-top: 5rem;
+    border: 1px solid #005cff;
+    padding: 1rem 1rem 3rem 1rem;
+    border-radius: 33px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 12px 40px rgba(0, 0, 0, 0.1);
+}
+
+.card h5 {
+    font-size: 26px;
+    font-weight: 600;
+    color: #34495e;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.card p {
+    font-size: 16px;
+    color: #7f8c8d;
+    line-height: 1.8;
+    text-align: center;
+}
+
+a.cards {
+    text-decoration: none;
+    display: block;
+    width: 88%;
+    margin: 0 auto;
+}
+
+.space {
+    margin-top: 2rem;
+}
+
+.login {
+    border-radius: 33px;
+    background-color: #fff;
+    border: 1px solid #005cff;
+    padding: 0 15px;
+    background-clip: padding-box;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: border 0.4s ease;
+}
+
+.login:hover {
+    border: 2px solid rgba(0, 123, 255, 0.7);
+}
+
+.myLogin {
+    width: 70%;
+    margin: 0.5em auto;
+}
+
+.myLogin-btn {
+    width: 70%;
+    margin-top: 3rem;
+}
