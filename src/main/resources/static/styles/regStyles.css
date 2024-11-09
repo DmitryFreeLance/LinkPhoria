@@ -58,11 +58,11 @@
     float: left;
     width: 20px;
     height: 20px;
-    background: #11a3fc;
+    color: #005cff;
     border-radius: 50%;
     position: relative;
     margin: 5px 0 0 5px;
-    border: 1px solid #11a3fc;
+    border: 1px solid #005cff;
 }
 .form-horizontal .main-checkbox label{
     width: 20px;
@@ -104,7 +104,7 @@
     float: right;
     font-size: 14px;
     color: #fff;
-    background: #00b4ef;
+    background: #005cff;
     border-radius: 30px;
     padding: 10px 25px;
     border: none;

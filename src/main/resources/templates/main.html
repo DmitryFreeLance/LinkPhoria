@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>LOG IN PAGE</title>
+    <title>LinkPhoria</title>
     <link rel="stylesheet" href="/libs/bootstrap.css">
     <link rel="stylesheet" href="/libs/jquery-ui.css">
     <link rel="stylesheet" href="/styles/styles.css">
@@ -91,7 +91,7 @@
                     <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
                 </svg>
             </a>
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="#" onclick="logout();">
                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
                      class="bi bi-box-arrow-right" viewBox="0 0 16 16">
                     <path fill-rule="evenodd"
@@ -100,6 +100,18 @@
                           d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"/>
                 </svg>
             </a>
+            <script>
+                function logout() {
+                    fetch("/logout", {
+                        method: "POST",
+                        credentials: "same-origin" // Важно для отправки cookies сессии
+                    }).then(function(response) {
+                        if (response.ok) {
+                            window.location.href = "/login?logout"; // Перенаправление после логаута
+                        }
+                    });
+                }
+            </script>
         </div>
     </nav>
 
