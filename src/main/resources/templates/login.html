@@ -2,15 +2,44 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Title</title>
+    <link rel="stylesheet" href="/libs/bootstrap.css">
+    <link rel="stylesheet" href="/libs/jquery-ui.css">
+    <link rel="stylesheet" href="/styles/regStyles.css">
+    <script src="/libs/jquery.js" defer></script>
+    <script src="/libs/jquery-ui.js" defer></script>
+    <script src="/libs/bootstrap.js" defer></script>
+    <script src="/script.js" defer></script>
 </head>
 <body>
-<h1>Авторизация</h1>
-<form action="/login" method="post">
-    <input type="email" name="username" placeholder="Почта"><br>
-    <input type="password" name="password" placeholder="Пароль"><br>
-    <input type="submit" value="Вход">
-</form>
-<a href="/registration">Зарегистрироваться</a>
+<div class="container">
+    <div class="row text-center align-content-center align-items-center align-self-center justify-content-center center">
+
+        <div class="col-md-offset-3 col-md-6">
+            <form action="/login" method="post" class="form-horizontal">
+                <span class="heading">Авторизация</span>
+                <div class="form-group">
+                    <input type="email" class="form-control" id="inputEmail" placeholder="Почта" name="username">
+                    <i class="fa fa-user"></i>
+                </div>
+                <div class="form-group help">
+                    <input type="password" class="form-control" id="inputPassword" placeholder="Пароль" name="password">
+                    <i class="fa fa-lock"></i>
+                    <a href="#" class="fa fa-question-circle"></a>
+                </div>
+                <div class="form-group">
+                    <div class="main-checkbox">
+                        <input type="checkbox" value="none" id="checkbox1" name="check"/>
+                        <label for="checkbox1"></label>
+                    </div>
+                    <span class="text">Запомнить</span>
+                    <button type="submit" class="btn btn-default" value="Зарегистрироваться">Войти</button>
+                </div>
+            </form>
+            <a href="/registration">Зарегистрироваться</a>
+        </div>
+    </div>
+</div>
 </body>
 </html>

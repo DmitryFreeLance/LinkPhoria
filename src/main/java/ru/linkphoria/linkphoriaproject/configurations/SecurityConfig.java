@@ -28,13 +28,14 @@ public class SecurityConfig {
         http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests((requests) -> requests
-                        .requestMatchers("/", "/registration", "/styles.css", "/script.js", "/libs/**").permitAll()
+                        .requestMatchers("/", "/registration", "/styles/**", "/script.js", "/libs/**").permitAll()
                         .requestMatchers("/tariffs/**", "/links/**")
                         .hasAnyAuthority("ROLE_ADMIN", "ROLE_USER")
                         .anyRequest().authenticated()
                 )
                 .formLogin((form) -> form
                         .loginPage("/login")
+                        .defaultSuccessUrl("/main", true)
                         .permitAll()
                 )
                 .logout(LogoutConfigurer::permitAll);

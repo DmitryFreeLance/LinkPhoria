@@ -2,15 +2,47 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Title</title>
+    <link rel="stylesheet" href="/libs/bootstrap.css">
+    <link rel="stylesheet" href="/libs/jquery-ui.css">
+    <link rel="stylesheet" href="/styles/regStyles.css">
+    <script src="/libs/jquery.js" defer></script>
+    <script src="/libs/jquery-ui.js" defer></script>
+    <script src="/libs/bootstrap.js" defer></script>
+    <script src="/script.js" defer></script>
 </head>
 <body>
-<h1>Регистрация</h1>
-<form action="/registration" method="post">
-    <input type="text" name="name" placeholder="Имя"><br>
-    <input type="email" name="email" placeholder="email"><br>
-    <input type="password" name="password" placeholder="Пароль"><br>
-    <input type="submit" value="Зарегистрироваться">
-</form>
+<div class="container">
+    <div class="row text-center align-content-center align-items-center align-self-center justify-content-center center">
+
+        <div class="col-md-offset-3 col-md-6">
+            <form action="/registration" method="post" class="form-horizontal">
+                <span class="heading">Регистрация</span>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="inputName" placeholder="Имя" name="name">
+                    <i class="fa fa-user"></i>
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-control" id="inputEmail" placeholder="Почта" name="email">
+                    <i class="fa fa-user"></i>
+                </div>
+                <div class="form-group help">
+                    <input type="password" class="form-control" id="inputPassword" placeholder="Пароль" name="password">
+                    <i class="fa fa-lock"></i>
+                    <a href="#" class="fa fa-question-circle"></a>
+                </div>
+                <div class="form-group">
+                    <div class="main-checkbox">
+                        <input type="checkbox" value="none" id="checkbox1" name="check"/>
+                        <label for="checkbox1"></label>
+                    </div>
+                    <span class="text">Запомнить</span>
+                    <button type="submit" class="btn btn-default" value="Зарегистрироваться">Зарегистрироваться</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 </body>
 </html>
