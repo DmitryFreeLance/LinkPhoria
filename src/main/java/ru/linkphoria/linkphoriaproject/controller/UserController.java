@@ -31,7 +31,7 @@ public class UserController {
 
     @PostMapping("/registration")
     public String createUser(User user, Model model) {
-        if(!userService.createUser(user)) {
+        if (!userService.createUser(user)) {
             model.addAttribute("errorMessage", "Пользователь с таким email уже существует");
             return "registration";
         }
@@ -51,5 +51,18 @@ public class UserController {
         }
 
         return "main";
+    }
+
+    @GetMapping("/profile")
+    public String profilePage(@AuthenticationPrincipal UserDetails userDetails, Model model) {
+        String email = userDetails.getUsername();
+        User user = userRepository.findByEmail(email);
+        if (user != null) {
+            model.addAttribute("name", user.getName());
+        } else {
+            model.addAttribute("name", "Guest");
+        }
+
+        return "profile";
     }
 }

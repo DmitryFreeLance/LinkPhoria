@@ -124,3 +124,14 @@ a.cards {
     width: 70%;
     margin-top: 3rem;
 }
+
+.avatar {
+    height: 10rem;
+    width: 10rem;
+    background: #4c5051;
+}
+
+.profileInput {
+    width: 90%;
+    height: 2rem;
+}
