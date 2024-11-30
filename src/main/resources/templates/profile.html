@@ -84,14 +84,9 @@
                     </ul>
                 </div>
             </div>
-            <a class="navbar-brand" style="margin-left: 2rem">LINK<span class="blue">PHORIA</span></a>
-            <a class="navbar-brand ms-auto" href="#"> <span th:text="${name != null ? name : 'Guest'}"></span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
-                     class="bi bi-person-circle" viewBox="0 0 16 16">
-                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-                    <path fill-rule="evenodd"
-                          d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-                </svg>
+            <a class="navbar-brand" href="main" style="margin-left: 2rem">LINK<span class="blue">PHORIA</span></a>
+            <a class="navbar-brand ms-auto" href="#"> <span th:text="${user.name != null ? user.name : 'Guest'}"></span>
+                    <img id="avatarr" th:src="${avatarUrl}" style="width: 40px; height: 40px" alt="Avatar" class="img-fluid rounded-circle">
             </a>
             <a class="navbar-brand" href="#" onclick="logout();">
                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
@@ -116,41 +111,48 @@
             </script>
         </div>
     </nav>
-    <div class="card p-4" style="margin: 5rem auto; max-width: 53rem; height: auto;">
+    <div class="card p-4" style="margin: 3rem auto; max-width: 53rem; height: auto;">
+        <span class="blue" style="text-align: center; font-family: 'Helvetica Neue'; font-size: 24px; font-weight: bold">Профиль</span>
         <div style="padding: 6rem;">
             <div class="row g-3">
                 <!-- Avatar Section -->
                 <div class="col-md-4 text-center">
-                    <div class="mb-3">
-                        <div class="rounded bg-light" style="width: 150px; height: 150px; margin: auto;"></div>
-                    </div>
-                    <button class="btn btn-primary mb-2 w-75">Изменить</button>
-                    <button class="btn btn-danger w-75">Удалить</button>
+                    <form id="uploadForm" th:action="@{/upload}" method="POST" enctype="multipart/form-data">
+                        <div class="mb-3">
+                            <div id="avatarContainer" class="rounded-circle bg-light" style="width: 150px; height: 150px; margin: auto;">
+                                <img id="avatar" th:src="@{${user.avatarUrl}}" style="width: 150px; height: 150px" alt="Avatar" class="img-fluid rounded-circle">
+                            </div>
+                        </div>
+                        <input type="file" id="avatarUpload" class="form-control mb-2" name="avatar" accept="image/*">
+                        <button type="submit" class="btn btn-primary w-100">Загрузить</button>
+                    </form>
                 </div>
 
                 <!-- Form Section -->
                 <div class="col-md-8">
-                    <form>
+                    <form action="/updateProfile" method="POST" th:object="${user}">
+
                         <!-- Email -->
                         <div class="mb-3">
                             <label for="email" class="form-label"><span class="blue">Email</span></label>
-                            <input type="email" class="form-control" id="email" value="qwerty@example.com">
+                            <input type="email" class="form-control" id="email" name="email" th:value="${user.email}">
                         </div>
 
                         <!-- Password -->
                         <div class="mb-3">
                             <label for="password" class="form-label"><span class="blue">Пароль</span></label>
-                            <input type="password" class="form-control" id="password" value="password">
+                            <input type="password" class="form-control" id="password" name="password" th:value="null">
                         </div>
 
                         <!-- Name -->
                         <div class="mb-3">
-                            <label for="firstName" class="form-label"><span class="blue">Имя</span></label>
-                            <input type="text" class="form-control" id="firstName" value="Влад">
+                            <label for="name" class="form-label"><span class="blue">Имя</span></label>
+                            <input type="text" class="form-control" maxlength="14" id="name" name="name" th:value="${user.name}">
                         </div>
 
                         <!-- Save Button -->
                         <button type="submit" class="btn btn-primary w-100">Сохранить</button>
+                        <span style="color:red" th:text="${errorMessage}"></span>
                     </form>
                 </div>
             </div>
@@ -158,4 +160,34 @@
     </div>
 </div>
 </body>
+<script>
+    document.getElementById('uploadForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Отменяем стандартное поведение формы
+
+        const formData = new FormData();
+        const fileInput = document.getElementById('avatarUpload');
+
+        if (fileInput.files.length > 0) {
+            formData.append('avatar', fileInput.files[0]);
+
+            fetch('/upload', {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        document.getElementById('avatar').src = data.avatarUrl;
+                        document.getElementById('avatarr').src = data.avatarUrl;
+                    } else {
+                        alert('Ошибка загрузки аватара: ' + data.message);
+                    }
+                })
+                .catch(error => {
+                    alert('Произошла ошибка при загрузке');
+                    console.error(error);
+                });
+        }
+    });
+</script>
 </html>

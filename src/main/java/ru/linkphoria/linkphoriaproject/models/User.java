@@ -2,6 +2,8 @@ package ru.linkphoria.linkphoriaproject.models;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import ru.linkphoria.linkphoriaproject.models.enums.Role;
@@ -26,7 +28,7 @@ public class User implements UserDetails {
     @Column(name = "active")
     private boolean active;
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "image_id")
+    @JoinColumn(name = "avatar_id")
     private Image avatar;
     @Column(name = "password", length = 1000)
     private String password;
@@ -70,5 +72,9 @@ public class User implements UserDetails {
     @Override
     public boolean isEnabled() {
         return active;
+    }
+
+    public String getAvatarUrl() {
+        return avatar != null ? "/images/" + avatar.getId() : "/default-avatar.png";
     }
 }

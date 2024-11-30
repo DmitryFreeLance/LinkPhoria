@@ -3,12 +3,12 @@ package ru.linkphoria.linkphoriaproject.controller;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import ru.linkphoria.linkphoriaproject.models.User;
 import ru.linkphoria.linkphoriaproject.repositories.UserRepository;
 import ru.linkphoria.linkphoriaproject.services.UserService;
@@ -18,6 +18,7 @@ import ru.linkphoria.linkphoriaproject.services.UserService;
 public class UserController {
     private final UserRepository userRepository;
     private final UserService userService;
+    private final PasswordEncoder passwordEncoder;
 
     @GetMapping("/login")
     public String login() {
@@ -47,22 +48,52 @@ public class UserController {
         if (user != null) {
             model.addAttribute("name", user.getName());
         } else {
-            model.addAttribute("name", "Guest");
+            return "redirect:/login";
         }
 
         return "main";
+    }
+
+    @GetMapping("/welcome")
+    public String welcomePage(){
+        return "welcome";
     }
 
     @GetMapping("/profile")
     public String profilePage(@AuthenticationPrincipal UserDetails userDetails, Model model) {
         String email = userDetails.getUsername();
         User user = userRepository.findByEmail(email);
+
         if (user != null) {
-            model.addAttribute("name", user.getName());
+            model.addAttribute("user", user);
         } else {
-            model.addAttribute("name", "Guest");
+            return "redirect:/login";
         }
 
         return "profile";
+    }
+
+    @PostMapping("/updateProfile")
+    public String updateUserProfile(
+            @AuthenticationPrincipal UserDetails userDetails,
+            @ModelAttribute("user") User user
+    ) {
+
+        String currentEmail = userDetails.getUsername();
+        User userFromDB = userRepository.findByEmail(currentEmail);
+
+        if (userFromDB != null) {
+            userFromDB.setName(user.getName());
+            userFromDB.setEmail(user.getEmail());
+
+            if (user.getPassword() != null && !user.getPassword().isEmpty()) {
+                String encodedPassword = passwordEncoder.encode(user.getPassword());
+                userFromDB.setPassword(encodedPassword);
+            }
+
+            userRepository.save(userFromDB);
+        }
+
+        return "redirect:/login";
     }
 }
